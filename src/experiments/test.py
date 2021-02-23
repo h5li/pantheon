@@ -775,7 +775,7 @@ def run_tests(args):
     utils.save_test_metadata(meta, metadata_path)
 
     # run tests
-    for run_id in xrange(args.start_run_id,
+    for run_id in range(args.start_run_id,
                          args.start_run_id + args.run_times):
         if not hasattr(args, 'test_config') or args.test_config is None:
             for cc in cc_schemes:
