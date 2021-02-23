@@ -216,6 +216,7 @@ def save_test_metadata(meta, metadata_path):
         meta['downlink_trace'] = path.basename(meta['downlink_trace'])
 
     with open(metadata_path, 'w') as metadata_fh:
+        print(meta)
         json.dump(meta.decode('utf-8'), metadata_fh, sort_keys=True, indent=4,
                   separators=(',', ': '))
 
