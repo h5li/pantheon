@@ -772,7 +772,7 @@ def run_tests(args):
     meta['git_summary'] = git_summary
 
     metadata_path = path.join(args.data_dir, 'pantheon_metadata.json')
-    utils.save_test_metadata(meta.decode('utf-8'), metadata_path)
+    utils.save_test_metadata(meta, metadata_path)
 
     # run tests
     for run_id in xrange(args.start_run_id,
