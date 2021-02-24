@@ -27,7 +27,7 @@ def enable_congestion_control(cc):
 
 def check_qdisc(qdisc):
     curr_qdisc = check_output('sysctl net.core.default_qdisc', shell=True)
-    curr_qdisc = curr_qdisc.split('=')[-1].strip()
+    curr_qdisc = str(curr_qdisc).split('=')[-1].strip()
 
     if qdisc != curr_qdisc:
         sys.exit('Error: current qdisc %s is not %s' % (curr_qdisc, qdisc))
