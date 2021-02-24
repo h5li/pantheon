@@ -11,6 +11,7 @@ def load_kernel_module(module):
 def enable_congestion_control(cc):
     cc_list = check_output('sysctl net.ipv4.tcp_allowed_congestion_control',
                            shell=True)
+    print(cc_list)
     cc_list = cc_list.split('=')
     cc_list = cc_list[-1]
     cc_list = cc_list.split()
