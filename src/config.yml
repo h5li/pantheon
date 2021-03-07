@@ -19,18 +19,10 @@ schemes:
     name: PCC-Allegro
     color: cyan
     marker: '>'
-  verus:
-    name: Verus
-    color: skyblue
-    marker: 'H'
   sprout:
     name: Sprout
     color: orange
     marker: 'p'
-  quic:
-    name: QUIC Cubic
-    color: magenta
-    marker: '8'
   scream:
     name: SCReAM
     color: pink
@@ -59,10 +51,6 @@ schemes:
     name: FillP
     color: violet
     marker: '+'
-  indigo:
-    name: Indigo
-    color: indigo
-    marker: 'D'
   fillp_sheep:
     name: FillP-Sheep
     color: violet

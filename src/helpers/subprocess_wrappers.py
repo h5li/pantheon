@@ -1,5 +1,6 @@
 import sys
 import subprocess
+import os
 
 
 def print_cmd(cmd):
@@ -31,4 +32,4 @@ def check_output(cmd, **kwargs):
 
 def Popen(cmd, **kwargs):
     print_cmd(cmd)
-    return subprocess.Popen(cmd, **kwargs)
+    return subprocess.Popen(' '.join(cmd), **kwargs)

@@ -29,6 +29,7 @@ class Test(object):
         self.mode = args.mode
         self.run_id = run_id
         self.cc = cc
+        self.pem = args.pem
         self.data_dir = path.abspath(args.data_dir)
 
         # shared arguments between local and remote modes
@@ -72,7 +73,7 @@ class Test(object):
             self.local_ofst = None
             self.remote_ofst = None
 
-            self.r = utils.parse_remote_path(args.remote_path, self.cc)
+            self.r = utils.parse_remote_path(args.remote_path, args.pem, self.cc)
 
         # arguments when there's a config
         self.test_config = None
@@ -264,13 +265,14 @@ class Test(object):
                 ts_manager_cmd = ['python', self.tunnel_manager]
             else:
                 ts_manager_cmd = self.r['ssh_cmd'] + [
-                    'python', self.r['tunnel_manager']]
+                    '"python', self.r['tunnel_manager'],'"' ] 
         else:
             ts_manager_cmd = ['python', self.tunnel_manager]
 
         sys.stderr.write('[tunnel server manager (tsm)] ')
         self.ts_manager = Popen(ts_manager_cmd, stdin=PIPE, stdout=PIPE,
-                                preexec_fn=os.setsid)
+                                preexec_fn=os.setsid, shell=True)
+
         ts_manager = self.ts_manager
 
         while True:
@@ -294,7 +296,7 @@ class Test(object):
 
         sys.stderr.write('[tunnel client manager (tcm)] ')
         self.tc_manager = Popen(tc_manager_cmd, stdin=PIPE, stdout=PIPE,
-                                preexec_fn=os.setsid)
+                                preexec_fn=os.setsid, shell=True)
         tc_manager = self.tc_manager
 
         while True:
@@ -306,6 +308,7 @@ class Test(object):
         tc_manager.stdin.write('prompt [tcm]\n')
         tc_manager.stdin.flush()
 
+        os.system("sudo sysctl -w net.ipv4.ip_forward=1")
         return ts_manager, tc_manager
 
     def run_tunnel_server(self, tun_id, ts_manager):
@@ -584,7 +587,7 @@ class Test(object):
         assert(self.mode == 'remote')
 
         # download logs from remote side
-        cmd = 'scp -C %s:' % self.r['host_addr']
+        cmd = 'scp -i %s -C %s:' % (self.pem, self.r['host_addr'])
         cmd += '%(remote_log)s %(local_log)s'
 
         # function to get a corresponding local path from a remote path
@@ -745,7 +748,7 @@ class Test(object):
 
 def run_tests(args):
     # check and get git summary
-    git_summary = utils.get_git_summary(args.mode,
+    git_summary = utils.get_git_summary(args.pem, args.mode,
                                         getattr(args, 'remote_path', None))
 
     # get cc_schemes

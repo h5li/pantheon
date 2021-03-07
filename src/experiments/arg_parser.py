@@ -229,6 +229,7 @@ def parse_test():
     remote.add_argument(
         'remote_path', metavar='HOST:PANTHEON-DIR',
         help='HOST ([user@]IP) and PANTHEON-DIR (remote pantheon directory)')
+    remote.add_argument('--pem')
 
     parse_test_shared(local, remote, config_args)
     parse_test_local(local)
