@@ -9,8 +9,8 @@ import yaml
 import subprocess
 from datetime import datetime
 
-import context
-from subprocess_wrappers import check_call, check_output, call
+from helpers import context
+from helpers.subprocess_wrappers import check_call, check_output, call
 
 
 def get_open_port():
@@ -217,6 +217,9 @@ def save_test_metadata(meta, metadata_path):
         meta['downlink_trace'] = path.basename(meta['downlink_trace'])
 
     with open(metadata_path, 'w') as metadata_fh:
+        for k in meta.keys():
+            if type(meta[k]) == bytes:
+                meta[k] = meta[k].decode('utf-8')
         json.dump(meta, metadata_fh, sort_keys=True, indent=4,
                   separators=(',', ': '))
 
