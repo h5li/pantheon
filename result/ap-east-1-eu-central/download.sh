@@ -1,0 +1,12 @@
+scp -i ../CSE222A-h5li-ap-east-1.pem ubuntu@18.163.105.162:/home/ubuntu/pantheon/data/ap-east-1-eu-central-1-flow1/pantheon_summary.pdf pantheon_summary_flow1.pdf
+scp -i ../CSE222A-h5li-ap-east-1.pem ubuntu@18.163.105.162:/home/ubuntu/pantheon/data/ap-east-1-eu-central-1-flow1/pantheon_summary_mean.pdf pantheon_summary_mean_flow1.pdf
+scp -i ../CSE222A-h5li-ap-east-1.pem ubuntu@18.163.105.162:/home/ubuntu/pantheon/data/ap-east-1-eu-central-1-flow1/pantheon_report.pdf pantheon_report_flow1.pdf
+scp -i ../CSE222A-h5li-ap-east-1.pem ubuntu@18.163.105.162:/home/ubuntu/pantheon/data/ap-east-1-eu-central-1-flow5/pantheon_summary.pdf pantheon_summary_flow5.pdf
+scp -i ../CSE222A-h5li-ap-east-1.pem ubuntu@18.163.105.162:/home/ubuntu/pantheon/data/ap-east-1-eu-central-1-flow5/pantheon_summary_mean.pdf pantheon_summary_mean_flow5.pdf
+scp -i ../CSE222A-h5li-ap-east-1.pem ubuntu@18.163.105.162:/home/ubuntu/pantheon/data/ap-east-1-eu-central-1-flow5/pantheon_report.pdf pantheon_report_flow5.pdf
+scp -i ../CSE222A-h5li-ap-east-1.pem ubuntu@18.163.105.162:/home/ubuntu/pantheon/data/ap-east-1-eu-central-1-flow10/pantheon_summary.pdf pantheon_summary_flow10.pdf
+scp -i ../CSE222A-h5li-ap-east-1.pem ubuntu@18.163.105.162:/home/ubuntu/pantheon/data/ap-east-1-eu-central-1-flow10/pantheon_summary_mean.pdf pantheon_summary_mean_flow10.pdf
+scp -i ../CSE222A-h5li-ap-east-1.pem ubuntu@18.163.105.162:/home/ubuntu/pantheon/data/ap-east-1-eu-central-1-flow10/pantheon_report.pdf pantheon_report_flow10.pdf
+scp -i ../CSE222A-h5li-ap-east-1.pem ubuntu@18.163.105.162:/home/ubuntu/pantheon/data/ap-east-1-eu-central-1-flow15/pantheon_summary.pdf pantheon_summary_flow15.pdf
+scp -i ../CSE222A-h5li-ap-east-1.pem ubuntu@18.163.105.162:/home/ubuntu/pantheon/data/ap-east-1-eu-central-1-flow15/pantheon_summary_mean.pdf pantheon_summary_mean_flow15.pdf
+scp -i ../CSE222A-h5li-ap-east-1.pem ubuntu@18.163.105.162:/home/ubuntu/pantheon/data/ap-east-1-eu-central-1-flow15/pantheon_report.pdf pantheon_report_flow15.pdf
